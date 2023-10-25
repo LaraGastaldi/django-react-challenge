@@ -3,7 +3,6 @@ import json
 from .apps import AuthConfig
 
 from django.http import HttpResponse
-from django.shortcuts import render
 from django.views import View
 
 
@@ -12,5 +11,5 @@ class Login(View):
         body = json.loads(request.body)
         user = AuthConfig.login(body["username"], body["password"])
         if not user:
-            return HttpResponse(json.dumps({"error": "error on authenticating"}), status=401)
+            return HttpResponse(json.dumps({"error": "Invalid credentials"}), status=401)
         return HttpResponse(json.dumps({"user_id": user['user'].id, "token": user['token']}), status=201)

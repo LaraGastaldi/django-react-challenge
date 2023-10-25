@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, logout
 from rest_framework.authtoken.models import Token
 
 
@@ -10,8 +10,7 @@ class AuthConfig(AppConfig):
     @staticmethod
     def login(username, password):
         user = authenticate(username=username, password=password)
-        print(user)
         if user is not None:
-            token = Token.objects.create(user=user)
+            token, created = Token.objects.get_or_create(user=user)
             return {"user": user, "token": token.key}
         return False
