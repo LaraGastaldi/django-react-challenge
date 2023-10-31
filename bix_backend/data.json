@@ -1,0 +1,22 @@
+[
+   {
+      "model": "company.company",
+      "pk": 1,
+      "fields":
+      {
+         "name": "Company 1"
+      }
+   },
+   {
+      "model": "user.employee",
+      "pk": 1,
+      "fields":
+      {
+         "company": 1,
+         "email": "admin@admin.com",
+         "username": "admin",
+         "name": "Administrador",
+         "password": "admin"
+      }
+   }
+]
