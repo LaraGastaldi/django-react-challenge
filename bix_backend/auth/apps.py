@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from django.contrib.auth import authenticate, logout
+from django.contrib.auth import authenticate, logout, get_user_model
 from rest_framework.authtoken.models import Token
 
 
