@@ -18,4 +18,4 @@ class Login(View):
         user = AuthConfig.login(body["username"], body["password"])
         if not user:
             return HttpResponse(json.dumps({"error": "Invalid credentials"}), status=401)
-        return HttpResponse(json.dumps({"user": ("json", EmployeeSerializer(user['user']).data), "token": user['token']}), status=201)
+        return HttpResponse(json.dumps({"user": EmployeeSerializer(user['user']).data, "token": user['token']}), status=201)

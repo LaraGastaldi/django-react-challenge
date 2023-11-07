@@ -11,7 +11,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     company = CompanySerializer(required=False)
     company_id = serializers.IntegerField(write_only=True)
-    is_staff = serializers.BooleanField()
+    is_staff = serializers.BooleanField(read_only=True)
 
     class Meta:
         model = Employee
