@@ -12,7 +12,6 @@ import ConfirmDeleteCompanyModal from "../components/confirmdeletecompany.modal"
 import EditCompanyModal from "../components/editcompany.modal";
 import Timeline from "./timeline";
 
-
 export default class Main extends Component {
     state = {
         ok: true,
